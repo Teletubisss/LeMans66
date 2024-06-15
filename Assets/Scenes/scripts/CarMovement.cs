@@ -11,7 +11,7 @@ public class CarMovement : MonoBehaviour
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
-        body.transform.position = new Vector2(12, Random.Range(-3.5f, 3.5f));
+        ResetCarPosition();
     }
 
     private void Update()
@@ -19,10 +19,18 @@ public class CarMovement : MonoBehaviour
         body.velocity = new Vector2(-1 * Car2speed, 0);
         if (body.transform.position.x < -12)
         {
-            body.transform.position = new Vector2(12, Random.Range(-3.5f, 3.5F));
+            ResetCarPosition();
         }
+    }
 
-        //if (collision.tag == "Player")
-        //    body.transform.position = new Vector2(12, Random.Range(-3.5f, 3.5f));
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+            ResetCarPosition();
+    }
+
+    private void ResetCarPosition()
+    {
+        body.transform.position = new Vector2(12, Random.Range(-3.5f, 3.5f));
     }
 }
