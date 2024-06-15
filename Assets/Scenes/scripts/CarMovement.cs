@@ -2,41 +2,27 @@
 using UnityEngine;
 
 public class CarMovement : MonoBehaviour
+
 {
+    [SerializeField] private float Car2speed;
+
     private Rigidbody2D body;
-
-    [SerializeField] private float speed; 
-
 
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
-        body.velocity = new Vector2(0, 0);
-        body.transform.position = new Vector2(-6, 0);
+        body.transform.position = new Vector2(12, Random.Range(-3.5f, 3.5f));
     }
 
     private void Update()
     {
-        HandleUserInputs();
-        //OnTriggerEnter2D();
+        body.velocity = new Vector2(-1 * Car2speed, 0);
+        if (body.transform.position.x < -12)
+        {
+            body.transform.position = new Vector2(12, Random.Range(-3.5f, 3.5F));
+        }
 
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Car")
-            body.transform.position = new Vector2(-6, 0);
-    }
-
-    private void HandleUserInputs()
-    {
-        if (Input.GetKey(KeyCode.UpArrow))
-            body.velocity = new Vector2(0, speed);
-
-        else if (Input.GetKey(KeyCode.DownArrow))
-            body.velocity = new Vector2(0, -1 * speed);
-
-        else
-            body.velocity = new Vector2(0, 0);
+        //if (collision.tag == "Player")
+        //    body.transform.position = new Vector2(12, Random.Range(-3.5f, 3.5f));
     }
 }
