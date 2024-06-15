@@ -22,7 +22,7 @@ public class Car2Movement : MonoBehaviour
             body.transform.position = new Vector2(12, Random.Range(-3.5f, 3.5F));
         }
 
-        //if (collision.tag == "Player")
-        //    body.transform.position = new Vector2(12, Random.Range(-3.5f, 3.5f));
+        if (collision.tag == "Player")
+            body.transform.position = new Vector2(12, Random.Range(-3.5f, 3.5f));
     }
 }
