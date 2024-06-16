@@ -176,18 +176,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.07831192, y: 0.44440484}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 6.24, y: 6.24}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 5.8553257, y: 2.1802225}
   m_EdgeRadius: 0
 --- !u!212 &1246122544
 SpriteRenderer:
@@ -230,7 +230,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 931facd9e60fdc740bea728d07f446ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -253,7 +253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e7abae010a145543b106de45a37ab3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 8
 --- !u!4 &1246122546
 Transform:
   m_ObjectHideFlags: 0
@@ -262,8 +262,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1246122541}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.18, y: 0.03, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -7.4619, y: 0.0316, z: 0}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -302,18 +302,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.06945324, y: 0.40207905}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 6.24, y: 6.24}
+    newSize: {x: 6.24, y: 6.24}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 5.817648, y: 2.067337}
   m_EdgeRadius: 0
 --- !u!50 &1504160857
 Rigidbody2D:
@@ -377,12 +377,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d4e5f7ea07861cb488b5dbe167aaf40b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 6.24, y: 6.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -401,6 +401,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Car2speed: 10
+  sprites:
+  - {fileID: 21300000, guid: 3ab42645ff2840f42a17243a08176297, type: 3}
+  - {fileID: 21300000, guid: 68c4d9cbcece85b4a8f910a6d60940ee, type: 3}
+  - {fileID: 21300000, guid: d4e5f7ea07861cb488b5dbe167aaf40b, type: 3}
+  - {fileID: 21300000, guid: 2d9cb4db70c3b9c4e9952d1413829965, type: 3}
+  - {fileID: 21300000, guid: 55d4a68184b55e445a68f283d08a934b, type: 3}
+  - {fileID: 21300000, guid: 9d5b08761749c5c4c8710548017d08f7, type: 3}
+  - {fileID: 21300000, guid: 931facd9e60fdc740bea728d07f446ef, type: 3}
 --- !u!4 &1504160860
 Transform:
   m_ObjectHideFlags: 0
@@ -409,8 +417,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1504160855}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.11, y: 0.32, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 9.3397, y: 0.1012, z: 0}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
