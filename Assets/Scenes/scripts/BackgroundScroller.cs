@@ -15,7 +15,7 @@ public class BackgroundScroller : MonoBehaviour
 
     void Update()
     {
-        float newPosition = Mathf.Repeat(Time.time * scrollSpeed, titleSizeX);
+        var newPosition = Mathf.Repeat(Time.time * scrollSpeed, titleSizeX);
         transform.position = startPosition + Vector3.left * newPosition;
     }
 }
