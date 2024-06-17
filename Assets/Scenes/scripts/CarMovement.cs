@@ -10,6 +10,7 @@ public class CarMovement : MonoBehaviour
     public Sprite[] sprites;
     private SpriteRenderer spriteRenderer;
     private GameObject _endGameScreen;
+    private bool _isCollision = false;
 
     private void Awake()
     {
@@ -18,7 +19,6 @@ public class CarMovement : MonoBehaviour
         ResetCarPosition();
         RandomSprite();
         body.velocity = new Vector2(-1 * Car2speed, 0);
-
     }
 
     private void Update()
@@ -32,6 +32,13 @@ public class CarMovement : MonoBehaviour
             body.velocity = new Vector2(randomSpeed, 0);
         }
 
+        if (Input.GetKey(KeyCode.Z))
+        {
+            HideEndScreen();
+            gameObject.SetActive(false);
+            RandomSprite();
+            StartBackground();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -42,6 +49,7 @@ public class CarMovement : MonoBehaviour
             gameObject.SetActive(false);
             ShowEndScreen();
             StopBackground();
+            _isCollision = true;
         }
     }
 
@@ -65,17 +73,6 @@ public class CarMovement : MonoBehaviour
         if (_endGameScreen == null)
             _endGameScreen = GameObject.Find("EndGame");
         _endGameScreen.SetActive(true);
-
-        //if (Input.GetKey(KeyCode.Space))
-      //  {
-      //      HideEndScreen();
-      //      ResetCarPosition();
-       //     RandomSprite();
-       //     StartBackground();
-
-
-      //  }
-
 
     }
 
