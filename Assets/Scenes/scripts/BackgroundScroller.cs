@@ -1,11 +1,9 @@
-
 using UnityEngine;
 
 public class BackgroundScroller : MonoBehaviour
 {
     public float scrollSpeed;
     public float titleSizeX;
-
     private Vector3 startPosition;
 
     void Awake()

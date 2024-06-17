@@ -25,7 +25,10 @@ public class PlayerMovement : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Car")
+        {
             body.transform.position = new Vector2(-6, 0);
+            gameObject.SetActive(false);
+        }
     }
 
     private void HandleUserInputs()

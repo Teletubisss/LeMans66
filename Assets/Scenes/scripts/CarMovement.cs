@@ -9,14 +9,16 @@ public class CarMovement : MonoBehaviour
     private Rigidbody2D body;
     public Sprite[] sprites;
     private SpriteRenderer spriteRenderer;
-
+    private GameObject _endGameScreen;
 
     private void Awake()
     {
+        HideEndScreen();
         body = GetComponent<Rigidbody2D>();
         ResetCarPosition();
         RandomSprite();
         body.velocity = new Vector2(-1 * Car2speed, 0);
+
     }
 
     private void Update()
@@ -29,12 +31,18 @@ public class CarMovement : MonoBehaviour
             var randomSpeed = Random.Range(-1.2f, -2f) * Car2speed;
             body.velocity = new Vector2(randomSpeed, 0);
         }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag== "Player")
+        {
             ResetCarPosition();
+            gameObject.SetActive(false);
+            ShowEndScreen();
+            StopBackground();
+        }
     }
 
     private void ResetCarPosition()
@@ -52,4 +60,24 @@ public class CarMovement : MonoBehaviour
         }
     }
 
+    private void ShowEndScreen()
+    {
+        if (_endGameScreen == null)
+            _endGameScreen = GameObject.Find("EndGame");
+        _endGameScreen.SetActive(true);
+    }
+
+    private void HideEndScreen()
+    {
+        if (_endGameScreen == null)
+            _endGameScreen = GameObject.Find("EndGame");
+        _endGameScreen.SetActive(false);
+    }
+
+    private void StopBackground()
+    {
+        var road = GameObject.Find("Background");
+        road.SetActive(false);
+    }
 }
+   
