@@ -65,6 +65,18 @@ public class CarMovement : MonoBehaviour
         if (_endGameScreen == null)
             _endGameScreen = GameObject.Find("EndGame");
         _endGameScreen.SetActive(true);
+
+        //if (Input.GetKey(KeyCode.Space))
+      //  {
+      //      HideEndScreen();
+      //      ResetCarPosition();
+       //     RandomSprite();
+       //     StartBackground();
+
+
+      //  }
+
+
     }
 
     private void HideEndScreen()
@@ -79,5 +91,14 @@ public class CarMovement : MonoBehaviour
         var road = GameObject.Find("Background");
         road.SetActive(false);
     }
+
+    private void StartBackground()
+    {
+        var road = GameObject.Find("Background");
+        road.SetActive(true);
+    }
+
+        
+
 }
    
