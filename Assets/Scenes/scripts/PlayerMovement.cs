@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D body;
+    private Vector3 _scale;
 
     [SerializeField] private float speed; 
 
@@ -18,8 +19,6 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         HandleUserInputs();
-        //OnTriggerEnter2D();
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -27,19 +26,39 @@ public class PlayerMovement : MonoBehaviour
         if (collision.tag == "Car")
         {
             body.transform.position = new Vector2(-6, 0);
-            gameObject.SetActive(false);
+            HidePlayer();
+        }
+        else if (collision.tag == "Wall")
+        {
+            //body.velocity = new Vector2(0, -1 * body.velocity.y);
+            body.velocity = new Vector2(0, 0);
         }
     }
 
     private void HandleUserInputs()
     {
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.Space))
+            ShowPlayer();
+        
+        else if (Input.GetKey(KeyCode.UpArrow))
             body.velocity = new Vector2(0, speed);
+
 
         else if (Input.GetKey(KeyCode.DownArrow))
             body.velocity = new Vector2(0, -1 * speed);
 
-        else
-            body.velocity = new Vector2(0, 0);
+        //else
+          //  body.velocity = new Vector2(0, 0);
+    }
+
+    private void ShowPlayer()
+    {
+        gameObject.transform.localScale = _scale;
+    }
+
+    private void HidePlayer()
+    {
+        _scale = gameObject.transform.localScale;
+        gameObject.transform.localScale = new Vector3(0, 0, 0);
     }
 }

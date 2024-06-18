@@ -9,11 +9,16 @@ public class CarMovement : MonoBehaviour
     private Rigidbody2D body;
     public Sprite[] sprites;
     private SpriteRenderer spriteRenderer;
+    private GameObject _road;
     private GameObject _endGameScreen;
-    private bool _isCollision = false;
+    private Vector3 _scale;
+
 
     private void Awake()
     {
+        _endGameScreen = GameObject.Find("EndGame");
+        _road = GameObject.Find("Background");
+
         HideEndScreen();
         body = GetComponent<Rigidbody2D>();
         ResetCarPosition();
@@ -32,10 +37,10 @@ public class CarMovement : MonoBehaviour
             body.velocity = new Vector2(randomSpeed, 0);
         }
 
-        if (Input.GetKey(KeyCode.Z))
+        if (Input.GetKey(KeyCode.Space))
         {
             HideEndScreen();
-            gameObject.SetActive(false);
+            ShowCar();
             RandomSprite();
             StartBackground();
         }
@@ -46,10 +51,9 @@ public class CarMovement : MonoBehaviour
         if (collision.tag== "Player")
         {
             ResetCarPosition();
-            gameObject.SetActive(false);
+            HideCar();
             ShowEndScreen();
             StopBackground();
-            _isCollision = true;
         }
     }
 
@@ -70,32 +74,34 @@ public class CarMovement : MonoBehaviour
 
     private void ShowEndScreen()
     {
-        if (_endGameScreen == null)
-            _endGameScreen = GameObject.Find("EndGame");
         _endGameScreen.SetActive(true);
-
     }
 
     private void HideEndScreen()
     {
-        if (_endGameScreen == null)
-            _endGameScreen = GameObject.Find("EndGame");
         _endGameScreen.SetActive(false);
     }
 
     private void StopBackground()
     {
-        var road = GameObject.Find("Background");
-        road.SetActive(false);
+        _road.SetActive(false);
     }
 
     private void StartBackground()
     {
-        var road = GameObject.Find("Background");
-        road.SetActive(true);
+        _road.SetActive(true);
     }
 
-        
+    private void ShowCar()
+    {
+        gameObject.transform.localScale = _scale;
+    }
+
+    private void HideCar()
+    {
+        _scale = gameObject.transform.localScale;
+        gameObject.transform.localScale = new Vector3(0,0,0);
+    }
 
 }
-   
+

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Car
   - EndGameScreen
+  - Wall
   layers:
   - Default
   - TransparentFX
